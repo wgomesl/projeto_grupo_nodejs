@@ -460,7 +460,7 @@ app.post('/func/insertfunc', (req, res) => {
   })
   
   //rota do buscar - funcionário (wesley)
-  app.get('/busca', (req, res) => {
+  app.get('/busca_func', (req, res) => {
     res.render('busca_func', { layout: false })
   })
   
