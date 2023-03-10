@@ -540,10 +540,10 @@ app.post('/func/insertfunc', (req, res) => {
     // conexao banco de dados
 const conn = mysql.createConnection({
     host: 'localhost',    
-    //port: '3307',
+    port: '3307',
     user:'root',
-    password: '1234',
-    database: 'locadora'
+    password: '',
+    database: 'locadora_carros'
     
     })
     
