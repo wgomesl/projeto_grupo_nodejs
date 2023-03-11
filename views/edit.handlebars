@@ -1,53 +1,21 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Alterna navegação">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="http://localhost:3000/">Locadu<span class="sr-only">(Página atual)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/cadastro_agnc">Cadastrar Agência</a>
-      </li>
-            <li class="nav-item">
-        <a class="nav-link" href="/unid">Unidades</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/busca">Buscar</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" action="/busca_client/" method="post">
-      <input class="form-control mr-sm-2" name="cpf" type="search" placeholder="Pesquisar por CPF" aria-label="Pesquisar por CPF">
-      <button class="btn btn-secondary" class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-    </form>
-  </div>
-</nav>
-
-<h1>Editar informações da unidade</h1>
+<h1>Editar Empresa {{emp.cnpj}}</h1>
     <hr>
-    <form action="/unid/updateunid" method="POST">
+    <form action="/emp/updateemp" method="POST">
         <div class="form-control">
-            <input type="hidden" name="id" id="id" value="{{unid.id}}">
-            <label for="nome">Agencia</label>
-            <input type="text" name="nome" placeholder="Digite o nome da agencia" value="{{unid.nome}}">
+            <input type="hidden" name="cnpj" id="cnpj" value="{{emp.cnpj}}">
+            <label for="nomeempresa">Nome empresa:</label>
+            <input type="text" name="nomeempresa" placeholder="Digite o nome do empresa" value="{{emp.nomeempresa}}">
         </div>
-
-        <div class="form-control">
-            <label for="quant">Cidade</label>
-            <input type="name" name="cidade" placeholder="Digite a cidade agencia" value="{{unid.cidade}}">
-        </div>
-
 
          <div class="form-control">
-            <label for="quant">Capacidade</label>
-            <input type="number" name="qtd" placeholder="Digite a capacidade na agencia" value="{{unid.qtd}}">
+            <label for="telefone">Telefone:</label>
+            <input type="text" name="telefone" placeholder="Digite a telefone " value="{{emp.telefone}}">
+        </div>
+
+        <div class="form-control">
+            <label for="localidade">Localidade:</label>
+            <input type="text" name="localidade" placeholder="Digite a localidade " value="{{emp.localidade}}">
         </div>
     
-        <input class="btn btn-dark" style="margin-top: 10px;" type="submit" value="Editar">
+        <input type="submit" value="Editar">
     </form>
