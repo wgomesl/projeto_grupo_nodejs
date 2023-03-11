@@ -466,7 +466,7 @@ app.post('/func/insertfunc', (req, res) => {
   
   
   //rota busc para exibir o resultado do buscar - funcionário (wesley)
-  app.post('/busc/', (req, res) => {
+  app.post('/busc_func/', (req, res) => {
     const id = req.body.id
     const sql = `SELECT * FROM funcionario WHERE id = ${id}`
   
