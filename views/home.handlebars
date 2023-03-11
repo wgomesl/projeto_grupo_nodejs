@@ -1,29 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocaCadu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+        <img src="https://i.imgur.com/AEDd9JG.png" alt="Logo da LoCadu" class="img-fluid" style="max-width: 50px;">
+    </a>
+</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/cadastro_agnc">Agências</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/cadastro_client">Clientes</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/cadastro_func">Funcionários</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/carros">Carros</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="">Sair</a>
+        </li>
+    </ul>
+</div>
 
-<h1>Cadastro de Empresa</h1>
-    <hr>
-    <form action="emp/insertemp" method="POST">
-        <div class="form-control">
-            <input type="hidden">
-            <label for="nomeempresa">Nome empresa:</label>
-            <input type="text" name="nomeempresa" placeholder="Digite o nome da empresa">
+    </ul>
+</div>
         </div>
+    </nav>
 
-         <div class="form-control">
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" name="cnpj" placeholder="Digite o cnpj da empresa">
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Painel De Controle LoCadu</h1>
+            </div>
         </div>
+        <div class="row">
+            <ol class="col-md-12">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                <img src="http://rankingfrotas.com.br/wp-content/uploads/2021/07/image-62.png" class="d-block w-100" alt="Imagem 1">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="https://verslocadoras.com.br/wp-content/uploads/2017/04/Carros1.png" class="d-block w-100" alt="Imagem 2">
+                                </div>
+                                <div class="carousel-item">
+                                <img src="http://capposeguros.com.br/wp-content/uploads/2014/01/Pack_veiculos_sombra.png" class="d-block w-100" alt="Imagem 3">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Anterior</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Próximo</span>
+                            </a>
 
-        <div class="form-control">
-            <label for="telefone">Telefone:</label>
-            <input type="text" name="telefone" placeholder="Digite o telefone da empresa">
+                        </div>
+                    </div>
+
+                </ol>
+
         </div>
+    </div>
 
-        <div class="form-control">
-            <label for="localidade">Localidade:</label>
-            <input type="text" name="localidade" placeholder="Digite a localidade">
-        </div>
+<footer class="bg-dark py-3">
+    <center>
+ <div class="container">
+        <p class="text-white">Direitos reservados © LoCadu</p>
+    </div>
 
-
-    
-        <input type="submit" value="Cadastrar">
-    </form>
+    </center>
+   
+</footer>
