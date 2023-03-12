@@ -326,9 +326,9 @@ app.get('/client', (req, res) => {
 })});
 
 //consulta um registo pelo id (produto.handlebars)
-app.get('/client/:id', (req, res) => {
-    const id = req.params.id  
-    const sql = `SELECT * FROM client WHERE id = ${id}`;
+app.get('/client/:cpf', (req, res) => {
+    const cpf = req.params.cpf 
+    const sql = `SELECT * FROM client WHERE cpf = ${cpf}`;
     conn.query(sql, function(err, data){
         if(err){
             console.log(err)
@@ -358,11 +358,11 @@ app.post('/busca_client/', (req, res) => {
 });
 
 //pegando para editar o registro
-app.get('/client/edit/:id', (req, res) => {
+app.get('/client/edit/:cpf', (req, res) => {
     
-    const id = req.params.id
+    const cpf = req.params.cpf
 
-    const sql = `SELECT * FROM client where id = ${id}`
+    const sql = `SELECT * FROM client WHERE cpf = '${cpf}'`
 
     conn.query(sql, function(err, data){
         if(err){
@@ -377,11 +377,11 @@ app.get('/client/edit/:id', (req, res) => {
 //rota de edicao do registro com post
 app.post('/client/updateclient', (req, res) => {
 
-    const id = req.body.id
+    const cpf = req.body.cpf
     const nome = req.body.nome
     const telefone = req.body.telefone
     
-    const sql = `UPDATE client SET nome = '${nome}', telefone ='${telefone}' WHERE id = '${id}'` 
+    const sql = `UPDATE client SET nome = '${nome}', telefone = '${telefone}' WHERE cpf = '${cpf}'` 
 
     conn.query(sql, function(err) {
         if(err){
@@ -393,11 +393,11 @@ app.post('/client/updateclient', (req, res) => {
 });
 
 //pegando para apagar um registro
-app.get('/client/remove/:id', (req, res) => {
+app.get('/client/remove/:cpf', (req, res) => {
     
-    const id = req.params.id
+    const cpf = req.params.cpf
 
-    const sql = `DELETE FROM client where id = ${id}`
+    const sql = `DELETE FROM client where cpf = ${cpf}`
 
     conn.query(sql, function(err, data){
         if(err){
