@@ -101,6 +101,10 @@ app.get('/', (req, res) => {
           app.get('/cadastro_car', (req, res) => {
             res.render('cadastro_car', { layout: false })
             })
+            app.get('/cadastro_emp', (req, res) => {
+              res.render('cadastro_emp', { layout: false })
+              })
+
           
 
 
@@ -535,7 +539,137 @@ app.post('/func/insertfunc', (req, res) => {
         res.redirect('/func')
     })
   })
+
+  //rota para inserir dados empresa (maicon)
+app.post('/emp/insertemp', (req, res) => {
+  const cnpj = req.body.cnpj
+  const nomeempresa = req.body.nomeempresa
+  const telefone = req.body.telefone
+  const localidade = req.body.localidade
+
+  const sql = `INSERT INTO empresas (cnpj, nomeempresa, telefone, localidade) VALUES ('${cnpj}', '${nomeempresa}', '${telefone}', '${localidade}')`
+
+  conn.query(sql, function(err){
+      if (err){
+          console.log(err)
+      }
+
+      res.redirect('/')
+  })
+})
+
+  //rota de consulta geral empresa (maicon)
+  app.get('/emp', (req, res) => {
+    const sql = 'SELECT * FROM empresas'
   
+    conn.query(sql, function(err, data){
+        if(err){
+            console.log(err)
+            return
+        }
+    
+        const listar = data
+        
+        console.log(listar)
+  
+        res.render('emp', { layout: false, listar })
+  
+    })
+  })
+
+    // consulta um registo pelo cnpj - empresas (maicon)
+    app.get('/emp/:cnpj', (req, res) => {
+      const cnpj = req.params.cnpj
+      
+      const sql = `SELECT * FROM empresas WHERE cnpj = ${cnpj}`
+    
+      conn.query(sql, function(err, data){
+          if(err){
+              console.log(err)
+              return
+          }
+    
+          const listar = data[0]
+          res.render('empresa', {  layout: false, listar } )
+    
+      })
+    })
+
+    //rota do buscar - empresas (maicon)
+    app.get('/busca_emp', (req, res) => {
+      res.render('busca_emp', { layout: false })
+    })
+
+    //rota busc para exibir o resultado do buscar - empresas (maicon)
+    app.post('/busc_emp/', (req, res) => {
+      const cnpj = req.body.cnpj
+      const sql = `SELECT * FROM empresas WHERE cnpj = '${cnpj}'`
+    
+      conn.query(sql, function(err, data){
+        if(err){
+        console.log(err)
+          return
+        }
+        const listar = data
+        res.render('busc_emp', {  layout: false, listar } )
+        })
+      })
+
+    //pegando para editar registro - empresas (maicon)
+      app.get('/emp/edit/:cnpj', (req, res) => {
+          
+        const cnpj = req.params.cnpj
+      
+        const sql = `SELECT * FROM empresas where cnpj = ${cnpj}`
+      
+        conn.query(sql, function(err, data){
+            if(err){
+                console.log(err)
+                return
+            }
+      
+            const emp = data[0]
+            res.render('edit_emp', { layout: false, emp } )
+      
+        })
+      })
+    
+    //rota de edicao do registro com post - empresas (maicon)
+      app.post('/emp/updateemp', (req, res) => {
+      
+        const cnpj = req.body.cnpj
+        const nomeempresa = req.body.nomeempresa
+        const telefone = req.body.telefone
+        const localidade = req.body.localidade
+        
+        const sql = `UPDATE empresas SET nomeempresa = '${nomeempresa}', telefone = '${telefone}', localidade = ${localidade} WHERE cnpj = '${cnpj}'` 
+      
+        conn.query(sql, function(err) {
+            if(err){
+                console.log(err)
+                return
+            }
+      
+            res.redirect('/emp')
+        })
+      
+      })
+
+    //rota para deletar um registro - empresas (maicon)
+      app.get('/emp/remove/:cnpj', (req, res) => {
+        const cnpj = req.params.cnpj
+      
+        const sql = `DELETE FROM empresas WHERE cnpj = ${cnpj}`
+      
+        conn.query(sql, function(err, data){
+            if(err){
+                console.log(err)
+                return
+            }
+      
+            res.redirect('/emp')
+        })
+      })
 
     // conexao banco de dados
 const conn = mysql.createConnection({
