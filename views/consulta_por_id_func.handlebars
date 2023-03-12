@@ -29,9 +29,15 @@
     </form>
   </div>
 </nav>
-<h1>Funcionário: {{listarProd.nome}} </h1>
-      
+<div class="container-main">
+<div class="container-data" style="margin-top: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<h1>Funcionário(a): {{listarProd.nome}} </h1>
+<h2>CPF: {{listarProd.cpf}}</h2>
+<h2>Cargo: {{listarProd.cargo}}</h2>
+</div>
 <br>
-<a class="btn btn-dark" href="/func/edit/{{listarProd.id}}">Editar</a>
+<div class="container-buttom" style="display: flex; align-items: center; justify-content: center;">
+<a class="btn btn-dark" style="margin-right: 10px;" href="/func/edit/{{listarProd.id}}">Editar</a>
 <a class="btn btn-dark" href="/func/remove/{{listarProd.id}}">excluir</a>
-
+</div>
+</div>

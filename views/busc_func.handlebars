@@ -30,8 +30,8 @@
     </form>
   </div>
 </nav>
-
-<h1 style="text-align: center;">Funcionários cadastrados</h1>
+<br>
+<h1 style="text-align: center;">Painel de busca - Funcionário</h1>
 <br>
 
 <table class="table">
@@ -46,7 +46,7 @@
       <th scope="col">Excluir</th>
       </tr>
   </thead>
-  {{#each listar}}
+  {{#each listarProd}}
   <tbody>
     <tr>
       <th scope="row">{{this.id}}</th>
@@ -62,5 +62,3 @@
   </tbody>
    {{/each}}
 </table>
-
-

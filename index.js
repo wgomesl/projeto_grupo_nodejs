@@ -479,8 +479,8 @@ app.post('/func/insertfunc', (req, res) => {
        console.log(err)
         return
       }
-       const listarProd = data[0]
-       res.render('consulta_por_id_func', {  layout: false, listarProd } )
+       const listarProd = data
+       res.render('busc_func', {  layout: false, listarProd } )
        })
       })
   
