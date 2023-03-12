@@ -29,37 +29,25 @@
   </div>
 </nav>
 
-<h1 style="text-align: center;">Unidades Cadastradas</h1>
+<h1>Editar informações da unidade</h1>
+    <hr>
+    <form action="/unid/updateunid" method="POST">
+        <div class="form-control">
+            <input type="hidden" name="id" id="id" value="{{unid.id}}">
+            <label for="nome">Agencia</label>
+            <input type="text" name="nome" placeholder="Digite o nome da agencia" value="{{unid.nome}}">
+        </div>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Agência</th>
-      <th scope="col">Cidade</th>
-      <th scope="col">Vagas</th>
-      <th scope="col">Visualizar</th>
-      <th scope="col">Editar</th>
-      <th scope="col">Excluir</th>
-      </tr>
-  </thead>
-  {{#each listar}}
-  <tbody>
-    <tr>
-      <th scope="row">{{this.id}}</th>
-      <td><a href="/unid/{{this.id}}">{{nome}}</a></td>
-      <td>{{cidade}}</td>
-      <td>{{qtd}} </td>
-      <td><a href="/unid/{{this.id}}"><button type="button" class="btn btn-success">Ver</button></a></td>
-       <td><a href="/unid/edit/{{this.id}}"><button type="button" class="btn btn-primary">Editar</button></a></td>
-      <td><a href="/unid/remove/{{this.id}}" ><button type="button" class="btn btn-danger">Excluir</button></a></td>
-      <!--<td><button type="button" class="btn btn-success"><a href="/prod/{{this.id}}">Ver</a></button></td> -->
-    </tr>
-  
-  </tbody>
-   {{/each}}
-</table>
+        <div class="form-control">
+            <label for="quant">Cidade</label>
+            <input type="name" name="cidade" placeholder="Digite a cidade agencia" value="{{unid.cidade}}">
+        </div>
 
 
+         <div class="form-control">
+            <label for="quant">Capacidade</label>
+            <input type="number" name="qtd" placeholder="Digite a capacidade na agencia" value="{{unid.qtd}}">
+        </div>
 
-</div>
+        <input class="btn btn-dark" style="margin-top: 10px;" type="submit" value="Editar">
+    </form>
