@@ -10,7 +10,7 @@ var port = 3000
 
 app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
-app.use(express.static('public'))
+app.use(express.static(__dirname + '../../' + '/public'));
 
 app.use(
     express.urlencoded({ 
